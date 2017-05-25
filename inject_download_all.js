@@ -109,8 +109,8 @@ function getAllSourceMedia(cursor, type, start, end) {
 					caption = currentData.nodes[i].caption
 						.replace(/[^A-Za-z 0-9 \.,!@#\$%\^&\*\(\)-_=\+;:\}\{\[\]`~]*/g, '')
 						.replace(/\n/g, " ").replace(/[\/\\\?\:\*\<\>\|\"\']/g, "")
-						.replace(/follow (\@|\#)9gag/gi, "").replace(/\@[a-z0-9_\-\.]/gi, "")
-						.replace(/(\#9gag|gagmobile)/gi, "")
+						.replace(/follow (\@|\#)9gag/gi, "").replace(/(\@|\#)[a-z0-9_\-\.]/gi, "")
+						.replace(/gagmobile/gi, "")
 						.replace(/- -/g, "")
 						.replace(/  /g, " ")
 						.substring(0,256-4-5);
