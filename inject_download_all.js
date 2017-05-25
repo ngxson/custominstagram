@@ -109,7 +109,7 @@ function getAllSourceMedia(cursor, type, start, end) {
 					caption = currentData.nodes[i].caption
 						.replace(/[^A-Za-z 0-9 \.,!@#\$%\^&\*\(\)-_=\+;:\}\{\[\]`~]*/g, '')
 						.replace(/\n/g, " ").replace(/[\/\\\?\:\*\<\>\|\"\']/g, "")
-						.replace(/follow (\@|\#)9gag/gi, "").replace(/(\@|\#)[a-z0-9_\-\.]/gi, "")
+						.replace(/follow (\@|\#)9gag/gi, "").replace(/(\@|\#)[a-z0-9_\-\.]+/gi, "")
 						.replace(/gagmobile/gi, "")
 						.replace(/- -/g, "")
 						.replace(/  /g, " ")
@@ -117,17 +117,18 @@ function getAllSourceMedia(cursor, type, start, end) {
 						
                 if (type == "all") {
                     if (currentData.nodes[i].is_video) {
-                        //output.push(GetVideoUrl(currentData.nodes[i].code));
-						//all_media_files += 1;
+                        output.push(GetVideoUrl(currentData.nodes[i].code));
+						nuiCaption.push(caption);
+						all_media_files += 1;
                     } else {
                         if (currentData.nodes[i].__typename == "GraphSidecar") {
                             var medias = GetMediaFromGraphSidecar(currentData.nodes[i].code);
                             //for (var j = 0; j < medias.length; j++) {
                             for (var j = 0; j < 1; j++) {
                                 if (medias[j].node.is_video) {
-                                    //output.push(GetBetterSize(medias[j].node.video_url));
-									//nuiCaption += caption + '\n';
-                                    //all_media_files += 1;
+                                    output.push(GetBetterSize(medias[j].node.video_url));
+									nuiCaption.push(caption);
+                                    all_media_files += 1;
                                 } else {
                                     output.push(GetBetterSize(medias[j].node.display_url));
 									nuiCaption.push(caption);
