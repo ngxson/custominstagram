@@ -1,0 +1,28 @@
+{
+   "background": {
+      "scripts": [ "background.js" ]
+   },
+   "content_scripts": [ {
+      "css": [ "bootstrap/css/bootstrap.css", "css/main.css", "css/photoswipe.css", "css/default-skin/default-skin.css" ],
+      "js": [ "bootstrap/js/jquery-2.1.3.mini.js", "bootstrap/js/bootstrap.min.js", "Settings.js", "js/photoswipe.min.js", "js/photoswipe-ui-default.min.js", "js/moment.min.js", "inject.js" ],
+      "matches": [ "*://instagram.com/*", "*://www.instagram.com/*" ]
+   } ],
+   "content_security_policy": "script-src 'self' https://apis.google.com; object-src 'self'",
+   "default_locale": "en",
+   "description": "__MSG_appDesc__",
+   "icons": {
+      "128": "icon_128.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA12ubefmQD+8eFNkgkqplVzm7ioGj2ltQCtZHk1rUJThOE929TME2Zvpg09bcYnSnKTBUqvCBBxbL3Ub9BdQgGgMNbJ4uG68fn/tEAlXNDwqUCoMk+TsZwz+faZDDeYjEe2DO+kUHMs6tZEKxc642La+ptyyUc/YWLdaPYXHRgtY14wboYt5lKvYAybPlRT2AkNAVcj4gBxdgJKei9hanVFpsH0dMJBL51U0FTPOb59PFtoEdA0frGRXqqnZHg8Eg7x2qXsI/UZDEacm6eyBp01vicDrMR/+DWrZ7Wdaa2cH/3KU4zH50P4qoUGowSxUwq7u2QqOmIX/7ZwKdOSg6xQIDAQAB",
+   "manifest_version": 2,
+   "name": "__MSG_appName__",
+   "page_action": {
+      "default_icon": "icon_128.png",
+      "default_popup": "views/settings.html",
+      "default_title": "Image Downloader"
+   },
+   "permissions": [ "declarativeContent", "tabs", "contentSettings", "http://*/*", "https://*/*", "activeTab", "downloads", "cookies", "webRequest", "webRequestBlocking", "*://*.instagram.com/*" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.6.5",
+   "web_accessible_resources": [ "html/photoswipe.html", "js/*", "css/*", "inject_download_all.js", "bootstrap/js/jquery-2.1.3.mini.js", "bootstrap/js/bootstrap.min.js", "savejs/FileSaver.js", "savejs/jszip.js", "savejs/jszip-utils.js", "view_32.png", "save_32.png", "views/settings.html", "loading.gif", "share-link.png", "save_hover.png", "share_hover.png", "preview_hover.png", "button_close.png" ]
+}

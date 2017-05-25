@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css" />
+    <script src="\bootstrap\js\jquery-2.1.3.mini.js" ></script>
+    <script src="\bootstrap\js\bootstrap.min.js"></script>
+    <script src="\platform.js" async defer></script>
+    <title></title>
+</head>
+<body style="width: 390px;margin-left: 10px;margin-right: 10px;margin-top: 6px;margin-bottom: 10px; color:black">
+<div class="row">
+    <div class="col-xs-4">
+        <h4 id="settings">Settings</h4>
+
+    </div>
+    <div class="col-xs-8">
+        <a href="https://chrome.google.com/webstore/detail/instagram-downloader/jnkdcmgmnegofdddphijckfagibepdlb" target="_blank" id="app_info"></a>
+    </div>
+    <!--div class="col-xs-3" id="donatePayPal">
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <input type="hidden" name="cmd" value="_s-xclick">
+        <input type="hidden" name="hosted_button_id" value="DUMX2QFMKTDEE">
+        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+        <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+    </div-->
+    <div id="preloaderDonate" class="col-xs-1" style="padding-right: 18px;padding-left: 0px; display: none">
+        <img id="preloaderDonateImage" >
+    </div>
+    <div class="col-xs-12">
+        <p id="text_message">Clicking “Save” will reload current tab and apply changes</p>
+    </div>
+    <div class="col-xs-12">
+        <table class="table table-striped" style="margin-bottom: 0;">
+            <tbody>
+            <tr>
+                <th id="panel_storage_to_save">Место для сохранения</th>
+            </tr>
+            <tr>
+                <td>
+                    <div class="radio" id="placeForSaveing">
+                        <label id="local_save">
+                            <input type="radio" name="optionsRadios2" id="localSave" value="local">
+                            Local Storage
+                        </label>
+                        <label id="google_drive_save" style="margin-left: 20px;">
+                            <input type="radio" name="optionsRadios2" id="driveSave" value="drive">
+                            Google Drive
+                        </label>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div class="col-xs-12" style="padding-bottom: 10px;"><a id="getPermission" href="https://script.google.com/">Permission for using Google Drive</a></div>
+
+    <div class="col-xs-12">
+        <table class="table table-striped" style="margin-bottom: 0;">
+            <tbody>
+            <tr>
+                <th id="panel_language">Language</th>
+            </tr>
+            <tr>
+                <td>
+                    <div class="radio" id="radio_language">
+                        <label id="panel_language_en" >
+                            <input type="radio" name="optionsRadios1" id="languageEn" value="en">
+                            English
+                        </label>
+                        <label id="panel_language_ru" style="margin-left: 20px;">
+                            <input type="radio" name="optionsRadios1" id="languageRu" value="ru">
+                            Русский
+                        </label>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-xs-12">
+        <table class="table table-striped" style="margin-bottom: 0;">
+            <tbody>
+            <tr>
+                <th id="label_saved_file_name_format">Saved File Name To Include</th>
+            </tr>
+            <tr>
+                <td>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="checkbox">
+                                <label >
+                                    <input type="checkbox" id="addtofilenamedefaultformat" value="1">
+                                    Default
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="checkbox">
+                                <label >
+                                    <input type="checkbox" name="optionsRadios11" id="addtofilenamenick" value="1">
+                                    Profile Name
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="checkbox">
+                                <label >
+                                    <input type="checkbox" name="optionsRadios11" id="addtofilenamedatetime" value="1">
+                                    Date & Time
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <p ><strong id="example_format_file_name_lb">Ex.: </strong>
+                                <span id="example_format_file_name">Jane_Doe.21.05.16.15.7.43.jpg</span></p>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-xs-12">
+        <table class="table table-striped" style="margin-bottom: 0;">
+            <tbody>
+            <tr>
+                <th id="label_appearance">Show These Buttons</th>
+            </tr>
+            <tr>
+                <td>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="checkbox">
+                                <label >
+                                    <input type="checkbox" id="appearance_preview" value="1">
+                                    Preview
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="checkbox">
+                                <label >
+                                    <input type="checkbox" id="appearance_share" value="1">
+                                    Share
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="checkbox">
+                                <label >
+                                    <input type="checkbox" id="appearance_download" value="1">
+                                    Save
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="checkbox">
+                                <label >
+                                    <input type="checkbox" id="appearance_download_all" value="1">
+                                    Save All
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="checkbox">
+                                <label >
+                                    <input type="checkbox" id="appearance_story_bar" value="1">
+                                    Story Bar
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-xs-3">
+        <button type="button" class="btn btn-success" id="SaveProperty" style="background-color: #773eb1; border-color: #773eb1">Save</button>
+    </div>
+
+</div>
+<script src="\Settings.js"></script>
+</body>
+</html>
